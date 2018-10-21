@@ -3,6 +3,4 @@ MAINTAINER shen100 liushen_shen@163.com
 RUN yum install -y wget
 RUN cd /tmp && wget https://nodejs.org/dist/v8.12.0/node-v8.12.0-linux-x64.tar.xz
 RUN cd /tmp && tar xvf node-v8.12.0-linux-x64.tar.xz && mkdir -p /data/env && mv node-v8.12.0-linux-x64 /data/env/nodejs
-RUN echo 'PATH=$PATH:/data/env/nodejs/bin' >> /etc/profile
-RUN echo 'export PATH' >> /etc/profile
-RUN echo 'source /etc/profile' >> ~/.bashrc
+ENV PATH=$PATH:/data/env/nodejs/bin
