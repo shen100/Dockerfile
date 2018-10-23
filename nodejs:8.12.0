@@ -1,6 +1,10 @@
 FROM centos:7.4.1708
 MAINTAINER shen100 liushen_shen@163.com
-RUN yum install -y wget
-RUN cd /tmp && wget https://nodejs.org/dist/v8.12.0/node-v8.12.0-linux-x64.tar.xz
-RUN cd /tmp && tar xvf node-v8.12.0-linux-x64.tar.xz && mkdir -p /data/env && mv node-v8.12.0-linux-x64 /data/env/nodejs
+RUN yum install -y wget \
+    && cd /tmp \
+    && wget https://nodejs.org/dist/v8.12.0/node-v8.12.0-linux-x64.tar.xz \
+    && tar xvf node-v8.12.0-linux-x64.tar.xz \
+    && mkdir -p /data/env \
+    && mv node-v8.12.0-linux-x64 /data/env/nodejs \
+    && rm -rf node-v8.12.0-linux-x64.tar.xz
 ENV PATH=$PATH:/data/env/nodejs/bin
